@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stationsübersicht</title>
+    <script>
+        function weiterleitung() {
+            let eingabe = document.getElementById("suchleiste").value;
+            const stationMap = {
+                "A2.1": "STATION_A2-1",
+                "A2.2": "STATION_A2-2",
+                // Add other stations as needed
+            };
+
+            if (stationMap[eingabe]) {
+                window.location.assign(`http://192.168.5.240/logbuch_webmodules/stmon?config_id=${stationMap[eingabe]}`);
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: radial-gradient(white, rgb(236, 236, 236)) no-repeat fixed;
+            background-size: cover;
+        }
+
+        center {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 60px;
+            font-family: Verdana, sans-serif;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        #suchleiste {
+            border: 2px solid #999;
+            border-radius: 5px;
+            font-size: 1.2em;
+            width: 200px;
+            transition: width 0.5s ease-in-out;
+            padding: 5px;
+        }
+
+        #suchleiste:focus {
+            width: 300px;
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            font-family: Verdana, sans-serif;
+            font-size: 20px;
+            color: #015193;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropbtn1, .dropbtn2, .dropbtn3 {
+            font-size: 40px;
+            font-family: Verdana, sans-serif;
+            color: #015193;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <center>
+        <img src="A910D35A-A73B-4C11-B7D4-F9B1B153BECA.png" alt="kmd" width="1235" height="338">
+        <h1>Willkommen zur Stationsübersicht</h1>
+
+        <form>    
+            <label for="stationssuche">Stationsname:</label>
+            <input size="30" maxlength="30" type="text" id="suchleiste" name="stationssuche">
+            <input type="button" value="Suchen" onclick="weiterleitung()">
+        </form>
+
+        <!-- Dropdown für Haus A -->
+        <div class="dropdown">
+            <button class="dropbtn1">Haus A</button>
+            <div class="dropdown-content">
+                <a href="http://192.168.5.240/logbuch_webmodules/stmon?config_id=STATION_A2-1">Station A2.1</a>
+                <a href="http://192.168.5.240/logbuch_webmodules/stmon?config_id=STATION_A2-2">Station A2.2</a>
+                
+                <!-- Weitere Stationen für Haus A hier einfügen -->
+            </div>
+        </div>
+
+        <!-- Dropdown für Haus B -->
+        <div class="dropdown">
+            <button class="dropbtn2">Haus B</button>
+            <div class="dropdown-content">
+                <a href="http://192.168.5.240/logbuch_webmodules/stmon?config_id=STATION_B0-1">Station B0.1</a>
+                <a href="http://192.168.5.240/logbuch_webmodules/stmon?config_id=STATION_B1-1">Station B1.1</a>
+                <!-- Weitere Stationen für Haus B hier einfügen -->
+            </div>
+        </div>
+
+        <!-- Dropdown für Haus D -->
+        <div class="dropdown">
+            <button class="dropbtn3">Haus D</button>
+            <div class="dropdown-content">
+                <a href="http://192.168.5.240/logbuch_webmodules/stmon?config_id=STATION_D0-1">Station D0.1</a>
+                <a href="http://192.168.5.240/logbuch_webmodules/stmon?config_id=STATION_D1-1">Station D1.1</a>
+                <!-- Weitere Stationen für Haus D hier einfügen -->
+            </div>
+        </div>
+
+        <!-- Weitere Dropdowns für zusätzliche Häuser nach Bedarf einfügen -->
+
+    </center>
+</body>
+</html>
